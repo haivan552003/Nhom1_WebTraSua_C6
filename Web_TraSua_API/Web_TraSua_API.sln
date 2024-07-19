@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_TraSua_API", "Web_TraSua_API\Web_TraSua_API.csproj", "{2807DB66-0407-4FD3-8D4A-2D8113BCA6A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_TraSua_API", "Web_TraSua_API\Web_TraSua_API.csproj", "{2807DB66-0407-4FD3-8D4A-2D8113BCA6A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_TraSua_BlazorWeb", "Web_TraSua_BlazorWeb\Web_TraSua_BlazorWeb.csproj", "{D3177242-F43E-4D9A-BB1D-C38BA195613C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2807DB66-0407-4FD3-8D4A-2D8113BCA6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2807DB66-0407-4FD3-8D4A-2D8113BCA6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2807DB66-0407-4FD3-8D4A-2D8113BCA6A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3177242-F43E-4D9A-BB1D-C38BA195613C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3177242-F43E-4D9A-BB1D-C38BA195613C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3177242-F43E-4D9A-BB1D-C38BA195613C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3177242-F43E-4D9A-BB1D-C38BA195613C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
