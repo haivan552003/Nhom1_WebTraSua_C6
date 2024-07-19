@@ -54,11 +54,6 @@ namespace Web_TraSua_API.Controllers
                 .Include(u => u.User)
                 .Include(u => u.Status)
                 .Include(u => u.BillDetail)
-                .ThenInclude(u => u.Size_Products)
-                .ThenInclude(u => u.Size)
-                .ThenInclude(u => u.Size_Product)
-                .ThenInclude(u => u.Product)
-                .ThenInclude(u => u.Image)
                 .ToListAsync();
 
 

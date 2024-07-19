@@ -18,6 +18,7 @@ namespace Web_TraSua_API.Data
         public DbSet<Product> product { get; set; }
         public DbSet<Size> size { get; set; }
         public DbSet<Size_Product> size_product { get; set; }
+        public ICollection<SizeProduct_BillDetail> sizeProduct_billDetail { get; set; }
         public DbSet<Status> status { get; set; }
         public DbSet<Image> image { get; set; }
         public DbSet<Blog> blog { get; set; }
@@ -45,10 +46,16 @@ namespace Web_TraSua_API.Data
                 .HasForeignKey(sp => sp.SizeID)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Size_Product>()
-                .HasOne(sp => sp.BillDetail)
-                .WithMany(s => s.Size_Products)
-                .HasForeignKey(sp => sp.SizeID)
+            modelBuilder.Entity<SizeProduct_BillDetail>()
+                .HasOne(sp => sp.bill_detail)
+                .WithMany(s => s.sizeProduct_billDetail)
+                .HasForeignKey(sp => sp.IDSizeProduct)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<SizeProduct_BillDetail>()
+                .HasOne(sp => sp.size_product)
+                .WithMany(s => s.sizeProduct_billDetail)
+                .HasForeignKey(sp => sp.IDSizeProduct)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Product>()

@@ -23,25 +23,25 @@ namespace Web_TraSua_API.Controllers
             _context = context;
         }
 
-        // GET: api/BillDetails
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<BillDetail>>> Getbill_detail()
-        {
-            //return await _context.bill_detail.ToListAsync();
+        //// GET: api/BillDetails
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<BillDetail>>> Getbill_detail()
+        //{
+        //    //return await _context.bill_detail.ToListAsync();
 
-            var options = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.Preserve
-            };
+        //    var options = new JsonSerializerOptions
+        //    {
+        //        ReferenceHandler = ReferenceHandler.Preserve
+        //    };
 
-            var billdetail = await _context.bill_detail
-                .Include(u => u.Size_Products)
-                .ThenInclude(u => u.Product)
-                .ToListAsync();
+        //    //var billdetail = await _context.bill_detail
+        //    //    .Include(u => u.Size_Products)
+        //    //    .ThenInclude(u => u.Product)
+        //    //    .ToListAsync();
 
-            var serializedData = JsonSerializer.Serialize(billdetail, options);
-            return Content(serializedData, "application/json");
-        }
+        //    //var serializedData = JsonSerializer.Serialize(billdetail, options);
+        //    //return Content(serializedData, "application/json");
+        //}
 
         // GET: api/BillDetails/5
         [HttpGet("{id}")]

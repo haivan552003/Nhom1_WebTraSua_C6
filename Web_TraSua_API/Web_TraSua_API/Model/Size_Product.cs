@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Web_TraSua_API.Model
 {
@@ -15,6 +16,6 @@ namespace Web_TraSua_API.Model
         public float Price { get; set; }
         public Product Product { get; set; }
         public Size Size { get; set; }
-        public BillDetail BillDetail { get; set; }
+        public ICollection<SizeProduct_BillDetail> sizeProduct_billDetail { get; set; }
     }
 }
