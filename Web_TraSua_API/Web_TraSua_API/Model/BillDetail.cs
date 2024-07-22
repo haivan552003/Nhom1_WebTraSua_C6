@@ -14,7 +14,7 @@ namespace Web_TraSua_API.Model
         public int SizeProductID { get; set; }
         public int Quality { get; set; }
         public float Subtotal { get; set; }
-        public ICollection<SizeProduct_BillDetail> sizeProduct_billDetail { get; set; }
+        public Size_Product sizeProduct { get; set; }
         public Bill Bill { get; set; }
     }
 }
