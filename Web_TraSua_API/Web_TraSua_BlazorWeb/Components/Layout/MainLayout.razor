@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using Web_TraSua_BlazorWeb.Components.Pages
 
 <nav class="navbar navbar-expand-lg fixed-top bg-white">
     <div class="container" id="nav">
@@ -65,33 +66,25 @@
         <div class="col-md-10 row mx-auto pt-5 pb-4">
             <div class="col-md-3">
                 <p class="text-black">DANH MỤC</p>
-                <p class="fs-14">
-                    Trà sữa
-                </p>
-                <p class="fs-14">
-                    Trà sữa
-                </p>
-                <p class="fs-14">
-                    Trà sữa
-                </p>
-                <p class="fs-14">
-                    Trà sữa
-                </p>
+                @foreach (Categories item in cateFour)
+                {
+                    <a href="">
+                        <p class="fs-14">
+                            @item.Name
+                        </p>
+                    </a>
+                }
             </div>
             <div class="col-md-3">
                 <p class="text-black">BÀI VIẾT</p>
-                <p class="fs-14 ellipsis">
-                    Trà sữa
-                </p>
-                <p class="fs-14 ellipsis">
-                    Trà sữa
-                </p>
-                <p class="fs-14 ellipsis">
-                    Trà sữa
-                </p>
-                <p class="fs-14 ellipsis">
-                    Trà sữa
-                </p>
+                @foreach (Blog item in blog)
+                {
+                    <a href="">
+                        <p class="fs-14 ellipsis">
+                            @item.Title
+                        </p>
+                    </a>
+                }
             </div>
             <div class="col-md-3">
                 <p class="text-black">CHĂM SÓC KHÁCH HÀNG</p>
@@ -126,3 +119,39 @@
         </div>
     </footer>
 </main>
+
+@code {
+    [Inject]
+    public NavigationManager NV { get; set; }
+
+    string urlCate = "http://localhost:29726/api/Categories";
+    string urlBlog = "http://localhost:29726/api/Blogs";
+
+    public IEnumerable<Categories> cateFour { get; set; } = Enumerable.Empty<Categories>();
+
+    public IEnumerable<Blog> blog { get; set; } = Enumerable.Empty<Blog>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Get();
+    }
+
+    async Task Get()
+    {
+        using (var httpClient = new HttpClient())
+        {
+            using (var response = await httpClient.GetAsync(urlCate))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                var allCategories = JsonConvert.DeserializeObject<List<Categories>>(apiResponse);
+                cateFour = allCategories.OrderByDescending(c => c.CateID).Take(5);
+            }
+
+            using (var response = await httpClient.GetAsync(urlBlog))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                blog = JsonConvert.DeserializeObject<List<Blog>>(apiResponse).OrderByDescending(b => b.Id).Take(5);
+            }
+        }
+    }
+}

@@ -34,13 +34,15 @@ namespace Web_TraSua_API.Controllers
         //        ReferenceHandler = ReferenceHandler.Preserve
         //    };
 
-        //    //var billdetail = await _context.bill_detail
-        //    //    .Include(u => u.Size_Products)
-        //    //    .ThenInclude(u => u.Product)
-        //    //    .ToListAsync();
+        //    var billdetail = await _context.bill_detail
+        //        .Include(u => u.sizeProduct_billDetail)
+        //        .ThenInclude(u => u.size_product)
+        //        .ThenInclude(u => u.Product)
+        //        .ThenInclude(u => u.Image)
+        //        .ToListAsync();
 
-        //    //var serializedData = JsonSerializer.Serialize(billdetail, options);
-        //    //return Content(serializedData, "application/json");
+        //    var serializedData = JsonSerializer.Serialize(billdetail, options);
+        //    return Content(serializedData, "application/json");
         //}
 
         // GET: api/BillDetails/5
